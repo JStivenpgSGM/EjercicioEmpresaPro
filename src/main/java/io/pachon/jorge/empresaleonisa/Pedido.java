@@ -11,7 +11,12 @@ public class Pedido {
 
     ArrayList<Producto> productos = new ArrayList<Producto>();
 
-    public Pedido(int cantidadUnidad, String medioPago, double descuento, int prontoPago) {
+    public Pedido(int cantidadUnidad, String medioPago, double descuento, int prontoPago) throws OrderException {
+
+        if ( cantidadUnidad <= 0){
+            throw new OrderException(cantidadUnidad);
+        }
+
         this.cantidadUnidad = cantidadUnidad;
         this.medioPago = medioPago;
         this.descuento = descuento;
